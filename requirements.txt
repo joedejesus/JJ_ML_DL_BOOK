@@ -1,0 +1,40 @@
+# --- Ciencia de Datos ---
+numpy==2.5.2
+pandas==3.0.5
+matplotlib==3.11.1
+seaborn==0.13.2
+
+# --- Machine Learning ---
+scikit-learn==1.9.0
+scipy==1.18.1
+
+# --- Deep Learning ---
+torch==2.13.0
+torchvision==0.28.0
+
+# --- NLP / Transformers ---
+transformers==5.15.1
+tokenizers==0.22.2
+datasets==5.0.1
+huggingface_hub==1.28.0
+safetensors==0.8.0
+
+# --- Jupyter (necesario para tus notebooks) ---
+ipykernel==7.3.0
+ipython==9.16.1
+jupyter_client==8.9.1
+jupyter_core==5.9.1
+nbconvert==7.17.1
+nbformat==5.11.1
+
+# --- Utilidades necesarias ---
+requests==2.34.2
+tqdm==4.70.0
+python-dotenv==1.2.3
+shap==0.52.0
+ipywidgets==8.1.9
+gensim==4.4.0
+torchtext==0.6.0
+accelerate==1.15.0
+transformers[torch]==5.15.1
+torchao==0.18.0

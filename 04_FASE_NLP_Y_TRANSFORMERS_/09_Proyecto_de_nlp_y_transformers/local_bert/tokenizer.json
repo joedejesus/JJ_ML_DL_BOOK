@@ -1,0 +1,271 @@
+{
+  "version": "1.0",
+  "truncation": null,
+  "padding": null,
+  "added_tokens": [
+    {
+      "id": 0,
+      "content": "[PAD]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 1,
+      "content": "[UNK]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 2,
+      "content": "[CLS]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 3,
+      "content": "[SEP]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 4,
+      "content": "[MASK]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    }
+  ],
+  "normalizer": {
+    "type": "BertNormalizer",
+    "clean_text": true,
+    "handle_chinese_chars": true,
+    "strip_accents": false,
+    "lowercase": true
+  },
+  "pre_tokenizer": {
+    "type": "BertPreTokenizer"
+  },
+  "post_processor": {
+    "type": "TemplateProcessing",
+    "single": [
+      {
+        "SpecialToken": {
+          "id": "[CLS]",
+          "type_id": 0
+        }
+      },
+      {
+        "Sequence": {
+          "id": "A",
+          "type_id": 0
+        }
+      },
+      {
+        "SpecialToken": {
+          "id": "[SEP]",
+          "type_id": 0
+        }
+      }
+    ],
+    "pair": [
+      {
+        "SpecialToken": {
+          "id": "[CLS]",
+          "type_id": 0
+        }
+      },
+      {
+        "Sequence": {
+          "id": "A",
+          "type_id": 0
+        }
+      },
+      {
+        "SpecialToken": {
+          "id": "[SEP]",
+          "type_id": 0
+        }
+      },
+      {
+        "Sequence": {
+          "id": "B",
+          "type_id": 1
+        }
+      },
+      {
+        "SpecialToken": {
+          "id": "[SEP]",
+          "type_id": 1
+        }
+      }
+    ],
+    "special_tokens": {
+      "[CLS]": {
+        "id": "[CLS]",
+        "ids": [
+          2
+        ],
+        "tokens": [
+          "[CLS]"
+        ]
+      },
+      "[SEP]": {
+        "id": "[SEP]",
+        "ids": [
+          3
+        ],
+        "tokens": [
+          "[SEP]"
+        ]
+      }
+    }
+  },
+  "decoder": {
+    "type": "WordPiece",
+    "prefix": "##",
+    "cleanup": true
+  },
+  "model": {
+    "type": "WordPiece",
+    "unk_token": "[UNK]",
+    "continuing_subword_prefix": "##",
+    "max_input_chars_per_word": 100,
+    "vocab": {
+      "[PAD]": 0,
+      "[UNK]": 1,
+      "[CLS]": 2,
+      "[SEP]": 3,
+      "[MASK]": 4,
+      "no": 5,
+      "puedo": 6,
+      "iniciar": 7,
+      "sesión": 8,
+      "en": 9,
+      "la": 10,
+      "plataforma": 11,
+      "desde": 12,
+      "ayer": 13,
+      "usuario": 14,
+      "logra": 15,
+      "acceder": 16,
+      "a": 17,
+      "su": 18,
+      "cuenta": 19,
+      "corporativa": 20,
+      "error": 21,
+      "de": 22,
+      "autenticación": 23,
+      "al": 24,
+      "intentar": 25,
+      "entrar": 26,
+      "panel": 27,
+      "aplicación": 28,
+      "rechaza": 29,
+      "mis": 30,
+      "credenciales": 31,
+      "correctas": 32,
+      "necesito": 33,
+      "ayuda": 34,
+      "porque": 35,
+      "el": 36,
+      "acceso": 37,
+      "quedó": 38,
+      "bloqueado": 39,
+      "sistema": 40,
+      "contraseña": 41,
+      "habitual": 42,
+      "factura": 43,
+      "del": 44,
+      "mes": 45,
+      "tiene": 46,
+      "un": 47,
+      "cobro": 48,
+      "duplicado": 49,
+      "quiero": 50,
+      "revisar": 51,
+      "cargo": 52,
+      "incorrecto": 53,
+      "mi": 54,
+      "suscripción": 55,
+      "aplicó": 56,
+      "importe": 57,
+      "que": 58,
+      "reconozco": 59,
+      "me": 60,
+      "facturaron": 61,
+      "dos": 62,
+      "veces": 63,
+      "mismo": 64,
+      "servicio": 65,
+      "aclarar": 66,
+      "extra": 67,
+      "última": 68,
+      "renovación": 69,
+      "automática": 70,
+      "generó": 71,
+      "inesperado": 72,
+      "se": 73,
+      "cierra": 74,
+      "adjuntar": 75,
+      "archivo": 76,
+      "muestra": 77,
+      "interno": 78,
+      "guardar": 79,
+      "cambios": 80,
+      "pantalla": 81,
+      "blanco": 82,
+      "después": 83,
+      "actualizar": 84,
+      "hay": 85,
+      "fallo": 86,
+      "exportar": 87,
+      "informe": 88,
+      "pdf": 89,
+      "herramienta": 90,
+      "lanza": 91,
+      "una": 92,
+      "excepción": 93,
+      "crear": 94,
+      "ticket": 95,
+      "detectamos": 96,
+      "bug": 97,
+      "cuando": 98,
+      "intentamos": 99,
+      "cambiar": 100,
+      "permisos": 101,
+      "consigo": 102,
+      "portal": 103,
+      "cliente": 104,
+      "login": 105,
+      "falla": 106,
+      "aunque": 107,
+      "son": 108,
+      "válidas": 109,
+      "ha": 110,
+      "cobrado": 111,
+      "cuota": 112,
+      "esperaba": 113,
+      "incluye": 114,
+      "erróneo": 115,
+      "este": 116,
+      "software": 117,
+      "bloquea": 118,
+      "editar": 119,
+      "incidencia": 120
+    }
+  }
+}

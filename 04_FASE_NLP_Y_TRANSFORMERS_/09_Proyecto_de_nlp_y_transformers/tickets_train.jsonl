@@ -1,0 +1,18 @@
+{"text": "No puedo iniciar sesión en la plataforma desde ayer", "label": 0}
+{"text": "El usuario no logra acceder a su cuenta corporativa", "label": 0}
+{"text": "Error de autenticación al intentar entrar al panel", "label": 0}
+{"text": "La aplicación rechaza mis credenciales correctas", "label": 0}
+{"text": "Necesito ayuda porque el acceso quedó bloqueado", "label": 0}
+{"text": "No me deja entrar al sistema con mi contraseña habitual", "label": 0}
+{"text": "La factura del mes tiene un cobro duplicado", "label": 1}
+{"text": "Quiero revisar un cargo incorrecto en mi suscripción", "label": 1}
+{"text": "Se aplicó un importe que no reconozco en la cuenta", "label": 1}
+{"text": "Me facturaron dos veces el mismo servicio", "label": 1}
+{"text": "Necesito aclarar un cobro extra en la última factura", "label": 1}
+{"text": "La renovación automática generó un cargo inesperado", "label": 1}
+{"text": "La aplicación se cierra al adjuntar un archivo", "label": 2}
+{"text": "El sistema muestra un error interno al guardar cambios", "label": 2}
+{"text": "La pantalla queda en blanco después de actualizar", "label": 2}
+{"text": "Hay un fallo al exportar el informe en PDF", "label": 2}
+{"text": "La herramienta lanza una excepción al crear un ticket", "label": 2}
+{"text": "Detectamos un bug cuando intentamos cambiar permisos", "label": 2}

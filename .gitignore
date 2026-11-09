@@ -1,0 +1,38 @@
+# Entornos y configuracion local
+venv/
+.venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Python y Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.vector_cache/
+.coverage
+htmlcov/
+
+# Salidas regenerables de los notebooks de NLP
+bert_tickets/
+salida_entrenamiento/
+salida_clasificacion/
+salida_evaluacion/
+salida_metricas_nlp/
+salida_evaluacion_clasificacion/
+modelo_exportado/
+
+# Logs, archivos temporales y herramientas locales
+*.log
+*.pid
+tmp/
+temp/
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
