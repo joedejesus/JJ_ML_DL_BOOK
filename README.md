@@ -1,8 +1,8 @@
 # JJ ML DL BOOK
 
-### De las matemáticas a los transformers, un notebook a la vez
+**JJ ML DL BOOK** es un libro práctico en español sobre ciencia de datos, machine learning, deep learning y procesamiento del lenguaje natural. Su propósito es facilitar el aprendizaje mediante un recorrido progresivo que conecta los fundamentos matemáticos con ejemplos de código y proyectos educativos.
 
-Un libro práctico en español para estudiar **ciencia de datos, machine learning, deep learning y procesamiento del lenguaje natural**. Combina explicaciones, código ejecutable y proyectos educativos en un recorrido progresivo.
+Para utilizarlo, descarga el repositorio, prepara el entorno de Python y abre los notebooks en VS Code o Jupyter. Puedes seguir las fases en orden, ejecutar y modificar los ejemplos, añadir tus apuntes y completar los proyectos para afianzar lo aprendido.
 
 [![Python](https://img.shields.io/badge/Python-3-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebooks-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
@@ -11,15 +11,28 @@ Un libro práctico en español para estudiar **ciencia de datos, machine learnin
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-Machine%20Learning-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Transformers-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/)
-[![Licencia](https://img.shields.io/badge/Licencia-Uso%20limitado-lightgrey)](LICENSE)
+[![Licencia](https://img.shields.io/badge/Licencia-Uso%20educativo%20no%20comercial-lightgrey)](LICENSE)
 
 **4 fases** · **35 temas** · **4 proyectos finales** · **143 notebooks**, incluido un cuaderno de laboratorio.
 
-[Explorar el recorrido](#el-recorrido) · [Ver los proyectos](#proyectos-finales) · [Preparar el entorno](#preparación-del-entorno) · [Licencia](#licencia-y-uso)
+[Inicio rápido](#inicio-rápido) · [Explorar el recorrido](#el-recorrido) · [Ver los proyectos](#proyectos-finales) · [Preparar el entorno](#preparación-del-entorno) · [Licencia](#licencia-y-uso)
 
-> **Alcance:** este material está orientado al estudio y la experimentación personal. Los ejemplos y sus resultados no son soluciones listas para producción ni una base suficiente para tomar decisiones reales.
+> **Alcance:** este material está orientado al estudio y la experimentación sin fines comerciales. También puede utilizarse para impartir clases gratuitas según la [licencia](LICENSE). Los ejemplos y sus resultados no son soluciones listas para producción ni una base suficiente para tomar decisiones reales.
 
 ---
+
+## A quién va dirigido
+
+Este libro está dirigido a personas que quieren iniciarse en la ciencia de datos y el aprendizaje automático, así como a quienes desean repasar sus fundamentos y practicar con ejemplos. No es necesario tener experiencia previa en machine learning, pero se recomienda conocer los conceptos básicos de Python, como variables, funciones y estructuras de datos.
+
+El recorrido comienza con fundamentos matemáticos aplicados; si ya tienes experiencia, puedes acceder directamente a los temas o proyectos que te interesen.
+
+## Inicio rápido
+
+1. En GitHub, selecciona **Code > Download ZIP** y descomprime el archivo, o clona el repositorio si utilizas Git.
+2. Abre la carpeta descargada en VS Code e instala sus extensiones de Python y Jupyter si aún no las tienes.
+3. Crea el entorno e instala las dependencias siguiendo la [preparación del entorno](#preparación-del-entorno).
+4. Abre el [primer notebook de álgebra lineal](01_FASE_MATEMATICAS_Y_CIENCIA_DE_DATOS_/01_Algebra_lineal_aplicada/01_El_algebra_lineal_aplicada.ipynb), selecciona el intérprete del entorno como kernel y ejecuta las celdas en orden.
 
 ## Qué encontrarás
 
@@ -36,7 +49,7 @@ flowchart LR
     A[01 · Matemáticas y datos] --> B[02 · Machine learning]
     B --> C[03 · Deep learning]
     C --> D[04 · NLP y transformers]
-    D --> E[05 · Laboratorio]
+    E[05 · Laboratorio complementario]
 ```
 
 | Fase | Enfoque | Punto de entrada |
@@ -172,10 +185,26 @@ Estas instrucciones son orientativas: no se ha verificado una instalación limpi
 1. Abre el proyecto en VS Code con soporte de Python y Jupyter, o usa una instalación propia de Jupyter.
 2. Selecciona el intérprete del entorno virtual como kernel.
 3. Abre un notebook y ejecuta sus celdas en orden.
-4. Para los proyectos finales, configura como directorio de trabajo la **carpeta de ese proyecto**: cada notebook busca sus recursos en el directorio actual y sus antecesores.
+4. Para los proyectos finales, comprueba el [directorio de trabajo](#directorio-de-trabajo-de-los-proyectos): cada notebook busca sus recursos en el directorio actual y sus antecesores.
 5. Consulta el README del proyecto para comprobar los resultados esperados y sus limitaciones.
 
 El archivo de dependencias incluye componentes de Jupyter y el kernel de Python, pero no instala por sí mismo la interfaz de JupyterLab. GitHub permite consultar los archivos publicados; para ejecutar los ejemplos es necesario un entorno de Python preparado.
+
+### Directorio de trabajo de los proyectos
+
+Cada proyecto final necesita que el directorio de trabajo sea su propia carpeta o una carpeta dentro de ella. Si el kernel se inicia desde la raíz del repositorio, no encontrará los recursos del proyecto.
+
+Para comprobarlo, ejecuta `from pathlib import Path; print(Path.cwd())` en una celda. Si necesitas cambiarlo, ejecuta la siguiente celda antes de las demás, sustituyendo el texto por la ruta absoluta de la carpeta del proyecto:
+
+```python
+import os
+from pathlib import Path
+
+os.chdir(r"RUTA_ABSOLUTA_DE_LA_CARPETA_DEL_PROYECTO")
+print(Path.cwd())
+```
+
+El cambio afecta al proceso del kernel; si lo reinicias, comprueba de nuevo el directorio.
 
 ### Recursos externos y archivos de salida
 
@@ -202,6 +231,10 @@ Si están habilitados, los issues y las Discussions pueden utilizarse para comun
 
 ## Licencia y uso
 
-El contenido original del proyecto está sujeto a una **licencia propietaria de uso limitado**, no a una licencia de código abierto. Se permite el estudio, la revisión técnica y la experimentación personal no comercial bajo las condiciones de [LICENSE](LICENSE). La publicación en GitHub no concede una autorización general de reutilización o distribución.
+Puedes descargar el libro gratuitamente, abrirlo en VS Code y ejecutar sus notebooks para estudiar, investigar y experimentar sin fines comerciales ni de lucro, sin pedir permiso. Puedes modificar y guardar tus copias privadas: añade apuntes, comentarios o celdas, resuelve ejercicios y cambia el texto o el código para aprender. Esto también se permite si estudias en un curso de pago o te preparas para tu actividad profesional. Puedes compartir el enlace al repositorio.
+
+Los profesores pueden utilizar y mostrar el contenido en clases gratuitas para los estudiantes, incluso si reciben un salario por enseñar. Este permiso no incluye entregar o distribuir copias ni publicar adaptaciones.
+
+El contenido original está sujeto a una **licencia de uso educativo no comercial**, no a una licencia de código abierto. Los forks dentro de GitHub están sujetos a las [condiciones de la plataforma](https://docs.github.com/terms-of-service). La redistribución fuera de GitHub, la publicación de adaptaciones o fragmentos y los usos comerciales requieren autorización previa, salvo los usos permitidos por la ley. Consulta los detalles en [LICENSE](LICENSE).
 
 Las bibliotecas, datasets, modelos y demás componentes de terceros conservan sus propios términos.

@@ -1,52 +1,44 @@
-# Seguridad
+# Política de seguridad
 
 ## Alcance
 
-JJ ML DL BOOK es un libro práctico de ciencia de datos, machine learning, deep learning y NLP orientado al estudio, la revisión técnica y la experimentación no comercial. Sus notebooks ejecutan código y pueden cargar datos, modelos o dependencias locales o externos. Esos recursos deben revisarse antes de utilizarlos, especialmente fuera del entorno educativo previsto.
+JJ ML DL BOOK es un libro educativo de ciencia de datos, machine learning, deep learning y NLP. Sus notebooks ejecutan código y pueden utilizar dependencias, datos o modelos locales y externos. Revisa estos recursos antes de utilizarlos, especialmente fuera de un entorno de aprendizaje.
 
-Este documento explica cómo reportar problemas de seguridad o usos inseguros detectados en el repositorio.
+Esta política explica cómo comunicar problemas de seguridad relacionados con el repositorio.
 
-## Qué debe reportarse
+## Qué reportar
 
-Conviene reportar, entre otros, problemas como:
+Algunos ejemplos de problemas que conviene comunicar son:
 
-- ejecución inesperada o insegura de código o comandos
-- exposición accidental de credenciales, datos personales o información sensible
-- dependencias, datasets o modelos que introduzcan riesgos conocidos o no esperados
-- instrucciones de instalación o ejecución que puedan causar pérdidas de datos o usos inseguros
-- resultados o ejemplos que puedan inducir a usar el material en contextos sensibles sin las precauciones necesarias
+- código o comandos que se ejecutan de forma inesperada o insegura;
+- exposición de credenciales, datos personales u otra información sensible;
+- dependencias, datasets o modelos con riesgos de seguridad;
+- instrucciones de instalación o ejecución que puedan causar pérdidas de datos;
+- ejemplos que puedan inducir a usos inseguros en contextos sensibles.
 
-## Qué no debe publicarse en abierto de entrada
+## Cómo comunicar un problema
 
-Si el hallazgo puede facilitar abuso, exponer datos o empeorar el riesgo antes de corregirse, no publiques primero todos los detalles en un issue abierto.
+Si el hallazgo puede facilitar abusos, exponer información o aumentar el riesgo para otras personas, **no publiques sus detalles en un issue o Discussion** antes de comunicarlo de forma privada.
 
-En esos casos, prioriza una divulgación responsable y limitada al titular del repositorio o al canal privado que GitHub pueda ofrecer para reportes de seguridad.
+1. Si está habilitada la notificación privada de vulnerabilidades, utiliza la opción correspondiente en la pestaña **Security** del repositorio.
+2. Si no está disponible, intenta contactar con el titular por una vía privada asociada a su perfil público. No se garantiza que exista un canal privado alternativo.
 
-## Cómo reportarlo
+Para errores que no sean sensibles, dudas o propuestas generales, puedes utilizar los issues o Discussions si están habilitados. Consulta [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Si el repositorio tiene habilitada la notificación privada de vulnerabilidades en GitHub, utiliza la opción de reportar una vulnerabilidad desde su pestaña **Security**.
+## Información útil para el reporte
 
-Si esa opción no está disponible, contacta con el titular del repositorio por una vía privada asociada a su perfil público antes de abrir un issue con detalles técnicos completos. No se garantiza que exista un canal privado alternativo ni un plazo de respuesta.
+Incluye, en la medida de lo posible:
 
-Para incidencias no sensibles, dudas de endurecimiento o propuestas generales de mejora, sí puede abrirse un issue normal o una Discussion con contexto suficiente y sin publicar material que aumente el riesgo.
+- una descripción del problema y el archivo, notebook o componente afectado;
+- las condiciones necesarias y los pasos para reproducirlo;
+- el impacto potencial;
+- las versiones y el entorno relevantes;
+- una posible mitigación, si la conoces.
 
-## Qué incluir en el reporte
+Comparte solo la información necesaria y evita adjuntar credenciales, datos personales o archivos de terceros.
 
-Un reporte útil debería incluir, en la medida de lo posible:
+## Expectativas
 
-- descripción clara del problema
-- componente afectado
-- pasos de reproducción
-- impacto potencial
-- condiciones necesarias para que ocurra
-- propuesta de mitigación o contención, si existe
+Los reportes se revisarán según su alcance y riesgo. El proyecto no garantiza soporte continuo, plazos de respuesta ni ausencia de fallos. Sus ejemplos no deben considerarse preparados para entornos sensibles o de producción sin una evaluación adicional.
 
-Evita adjuntar credenciales, datos personales o archivos de terceros; comparte solo la información mínima necesaria para reproducir el problema.
-
-## Expectativas y límites
-
-Este repositorio no ofrece compromisos formales de SLA, soporte continuo ni plazos garantizados de respuesta. Aun así, los reportes razonables y bien documentados se revisarán con prioridad proporcional al riesgo y al alcance del problema.
-
-## Relación con la licencia y el descargo de responsabilidad
-
-La existencia de esta política de seguridad no implica garantía de ausencia de fallos ni aptitud para entornos sensibles. Consulta [LICENSE](LICENSE) para las limitaciones legales, restricciones de uso y descargo de responsabilidad aplicables al proyecto. Para las reglas generales de participación, revisa también [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) y [CONTRIBUTING.md](CONTRIBUTING.md).
+Consulta [LICENSE](LICENSE) para las condiciones de uso y el descargo de responsabilidad, y [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) para las normas de participación.

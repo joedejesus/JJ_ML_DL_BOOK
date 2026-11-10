@@ -1,75 +1,41 @@
-# Proyecto de Deep Learning: Detección de Defectos Industriales con CNN
+# Proyecto de deep learning: detección de defectos con CNN
 
-## Papel de este proyecto dentro del libro
+Este proyecto cierra la fase de deep learning con un clasificador visual que distingue piezas correctas de piezas defectuosas. Su objetivo es conectar la preparación de imágenes, los dataloaders, una red neuronal convolucional y su evaluación en un ejemplo local.
 
-Este proyecto cierra la fase de deep learning y conecta la teoría de tensores, dataloaders, entrenamiento y CNN en un ejemplo visual pequeño. Su función es mostrar que la entrada, la arquitectura y la evaluación deben entenderse juntas.
+Las imágenes son sintéticas y el modelo es pequeño: el proyecto está pensado para aprender el flujo, no para inspección industrial real.
 
-El mapa global del repositorio se presenta en [README.md](../../README.md).
+## Recursos
 
-## Qué resuelve este proyecto
+| Recurso | Descripción |
+| --- | --- |
+| [Proyecto_de_deep_learning.ipynb](Proyecto_de_deep_learning.ipynb) | Notebook de preparación, entrenamiento y evaluación. |
+| [data/train](data/train) | Imágenes de entrenamiento, organizadas en las clases `ok` y `defect`. |
+| [data/test](data/test) | Imágenes de prueba, organizadas en las mismas clases. |
 
-El notebook construye un clasificador visual sencillo para distinguir piezas correctas de piezas defectuosas. La idea central no es alcanzar un benchmark alto, sino mostrar con claridad cómo se conectan datos de imagen, arquitectura convolucional, entrenamiento y evaluación dentro de un flujo local.
+Las imágenes locales están almacenadas en RGBA; `ImageFolder` las carga en RGB y el notebook las prepara a 128 × 128 píxeles. No es necesario descargar un dataset externo. El notebook no genera las imágenes si faltan.
 
-## Por qué existe esta carpeta
+## Cómo ejecutarlo
 
-La carpeta concentra un ejemplo de visión por computador que puede ejecutarse sin descargar datasets ni depender de servicios externos. Las imágenes necesarias están aquí; también hace falta preparar el entorno y las dependencias del repositorio.
+1. Prepara Python y las dependencias siguiendo el [README principal](../../README.md#preparación-del-entorno).
+2. Abre el [notebook](Proyecto_de_deep_learning.ipynb) en VS Code o Jupyter y selecciona el entorno preparado como kernel.
+3. Configura esta carpeta como directorio de trabajo y ejecuta las celdas en orden. Consulta cómo [comprobarlo y cambiarlo](../../README.md#directorio-de-trabajo-de-los-proyectos).
 
-## Navegación de la carpeta
+El notebook busca sus recursos en el directorio de trabajo actual y sus antecesores; no los encuentra si se inicia desde la raíz del repositorio. Si falta algún recurso, restaura los archivos de `data` antes de ejecutar el proyecto.
 
-| Recurso | Función | Por qué existe |
-| --- | --- | --- |
-| [Proyecto_de_deep_learning.ipynb](Proyecto_de_deep_learning.ipynb) | Notebook principal | explicar transforms, dataloaders, red, loss, optimizador y evaluación |
-| [data/train](data/train) | Imágenes de entrenamiento | ajustar parámetros del modelo tras excluir duplicados de prueba |
-| [data/test](data/test) | Conjunto de prueba | evaluar sobre imágenes que no se usan en el entrenamiento |
-| [data/train/ok](data/train/ok) y [data/train/defect](data/train/defect) | Clases de entrenamiento | permitir a ImageFolder inferir etiquetas automáticamente |
-| [data/test/ok](data/test/ok) y [data/test/defect](data/test/defect) | Clases de evaluación | proporcionar imágenes para ejecutar la evaluación |
+## Flujo y resultados
 
-## Por qué las imágenes están diseñadas así
+1. Carga las imágenes y aplica las transformaciones necesarias para unificar su tamaño y escala.
+2. Excluye del entrenamiento las imágenes cuyos píxeles RGB coinciden exactamente con imágenes de prueba, sin modificar los archivos, y crea los lotes con `DataLoader`.
+3. Define la CNN, la función de pérdida y el optimizador, y entrena el modelo.
+4. Evalúa el modelo con accuracy y una matriz de confusión para las clases `ok` y `defect`.
 
-- El dataset local contiene dos clases: ok y defect.
-- Las imágenes sintéticas locales están almacenadas en RGBA; ImageFolder las carga en RGB y el notebook las prepara a 128x128.
-- Las imágenes ok representan una pieza con patrón limpio.
-- Las imágenes defect incluyen una marca anómala visible sobre ese patrón base.
-- El dataset es pequeño a propósito para que el notebook pueda entrenar con rapidez y mostrar el flujo dentro del proyecto.
+Durante la ejecución deberías ver las pérdidas por época y, al final, las métricas de prueba. Se fija una semilla para ayudar a reproducir el ejemplo, aunque los resultados pueden variar entre entornos.
 
-## Cómo se relaciona el código con los archivos
+## Limitaciones
 
-1. La primera celda de código busca el notebook y las carpetas `data/train` y `data/test` desde el directorio de trabajo actual y sus antecesores.
-2. El bloque de transforms unifica tamaño y escala de píxeles para que la red reciba entradas consistentes.
-3. ImageFolder recorre [data/train](data/train) y [data/test](data/test) para asignar etiquetas según el nombre de la carpeta.
-4. Se excluyen del entrenamiento las imágenes cuyos píxeles RGB coinciden con imágenes de prueba, sin modificar los archivos; DataLoader crea los lotes de ambas particiones.
-5. La CNN transforma la imagen en representaciones intermedias y termina produciendo logits para dos clases.
+- El dataset es pequeño y visualmente sencillo: contiene 36 archivos de entrenamiento y 12 de prueba.
+- Los 12 archivos de prueba tienen una copia exacta en entrenamiento. El notebook excluye esas copias y entrena con 24 imágenes; el filtrado no detecta variantes similares que no sean idénticas.
+- Una accuracy alta en este ejemplo no demuestra robustez en un entorno industrial.
+- La evaluación no incluye validación por épocas ni análisis visual detallado de errores.
 
-## Por qué el flujo del notebook está organizado así
-
-- Primero se fija la entrada porque en visión la forma y normalización del dato condicionan las operaciones posteriores.
-- Después se define la arquitectura, la función de pérdida y el optimizador.
-- El entrenamiento aparece antes de la evaluación para observar los resultados del modelo después de ajustar sus pesos.
-- La semilla manual ayuda a reproducir el ejemplo, aunque los resultados pueden variar entre entornos.
-
-## Qué debería entender el lector al terminar
-
-- Que una CNN aprende a partir de imágenes, etiquetas y una regla explícita de optimización.
-- Que train y test cumplen funciones distintas y deben contener ejemplos independientes para evaluar generalización.
-- Que una accuracy alta en un dataset simple no equivale automáticamente a robustez industrial real.
-
-## Comprobación rápida
-
-Una ejecución correcta de este proyecto deja tres señales claras:
-
-- La primera celda de código encuentra el notebook y las carpetas de datos; no genera las imágenes si faltan.
-- El entrenamiento produce una secuencia corta de pérdidas por época sin errores de forma entre tensores y capas densas.
-- La evaluación final devuelve accuracy y una matriz de confusión legible para las clases ok y defect.
-
-Para validarlo, prepara el entorno indicado en el [README principal](../../README.md), abre [Proyecto_de_deep_learning.ipynb](Proyecto_de_deep_learning.ipynb) y ejecuta sus celdas en orden. Configura esta carpeta como directorio de trabajo: la búsqueda solo revisa el directorio actual y sus antecesores, por lo que no encuentra el proyecto si se ejecuta desde la raíz del repositorio.
-
-## Limitaciones deliberadas
-
-- El dataset es sintético, pequeño y visualmente sencillo: contiene 36 archivos de entrenamiento y 12 de prueba.
-- Los 12 archivos de prueba tienen una copia en entrenamiento. El notebook excluye esas copias por coincidencia exacta de píxeles RGB y entrena con 24 imágenes; el filtrado no detecta variantes similares que no sean idénticas.
-- La red es compacta y no pretende representar una solución productiva de inspección industrial.
-- La evaluación es intencionalmente ligera: se apoya en accuracy y una matriz de confusión final, pero no incorpora validación por épocas ni análisis visual detallado de errores.
-
-## Nota operativa
-
-Si la carpeta `data` no estuviera completa, la referencia correcta es restaurar sus archivos dentro del propio proyecto antes de volver a ejecutar el notebook.
+[Volver al libro](../../README.md)
